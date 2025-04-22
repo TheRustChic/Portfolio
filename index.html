@@ -1,57 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111827;
+            color: #f9fafb;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 60px;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: transparent;
+            background-clip: text;
+            background-image: linear-gradient(to right, #8b5cf6, #3b82f6, #22c55e);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .project-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        .project-card-header h3{
+            color: #e5e7eb;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .project-card-content {
+            padding: 1rem;
+            display: none;
+            color: #d1d5db;
+        }
+
+        .project-card-content.show {
+            display: block;
+        }
+
+        .technologies-used {
+            margin-bottom: 1rem;
+        }
+        .tech-badge {
+            background-color: rgba(124, 58, 237, 0.2);
+            color: #d946ef;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            padding: 6px 12px;
+            border-radius: 1rem;
+            margin-right: 8px;
+            font-size: 0.75rem;
+        }
+        .view-project-link {
+            color: #60a5fa;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        .view-project-link:hover {
+            color: #3b82f6;
+        }
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(167, 139, 250, 0.3);
+            margin: 0 auto 24px;
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .name {
+            font-size: 3rem;
+            font-weight: bold;
+            color: transparent;
+            background-clip: text;
+            background-image: linear-gradient(to right, #8b5cf6, #3b82f6, #22c55e);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .designation {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .contact-links a {
+            color: #d1d5db;
+            transition: color 0.3s ease;
+        }
+        .contact-links a:hover {
+            color: #a855f7;
+        }
+        .about-me {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            line-height: 1.75;
+            color: #d1d5db;
+        }
+        .section-header{
+            color: #f8fafc;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .experience-item{
+            margin-bottom: 1.5rem;
+        }
+        .experience-title{
+            color: #e5e7eb;
+            font-size: 1.125rem;
+            font-weight: bold;
+        }
+        .experience-company{
+            color: #9ca3af;
+        }
+        .experience-list{
+            list-style-type: disc;
+            padding-left: 2rem;
+            color: #d1d5db;
+        }
+        .accordion-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            color: #d1d5db;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-icon.rotate {
+            transform: rotate(180deg);
+        }
+
+    </style>
 </head>
+<body class="bg-gray-900 text-gray-300">
+    <div class="container">
+        <section class="section">
+            <div class="text-center">
+                <div class="profile-image">
+                    <img src="https://via.placeholder.com/150" alt="Jane Doe">
+                </div>
+                <h1 class="name">Jane Doe</h1>
+                <p class="designation">Data Scientist | Machine Learning Enthusiast</p>
+                <div class="contact-links">
+                    <a href="mailto:jane.doe@example.com">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22 6 12 13 2 6"></polyline></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/janedoe" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="https://github.com/janedoe" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.3-.87 2.23a4 4 0 0 1-1.13 1.27V22"></path></svg>
+                    </a>
+                    <a href="https://twitter.com/janedoe"  target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-<body>
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="nav-logo">MyPortfolio</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About Me</a></li>
-        <li><a href="projects.html">Projects</a></li>
-      </ul>
-    </nav>
-  </header>
+        <section class="section">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-me">
+                Hello! I'm Jane, a passionate data scientist with a strong background in
+                machine learning and statistical modeling. I love turning raw data into
+                actionable insights and building intelligent systems that solve real-world
+                problems. My expertise includes developing predictive models, data
+                visualization, and working with large datasets. I'm always eager to learn
+                new technologies and collaborate on exciting projects.
+            </p>
+        </section>
 
-  <main class="about">
-    <section class="about-intro">
-      <img src="images/profile.jpg" alt="My Photo" class="profile-img" />
-      <div class="about-text">
-        <h1>Hi, I'm [Your Name]</h1>
-        <p>Welcome to my data science portfolio! I'm passionate about turning data into actionable insights, visualizing complex information, and solving real-world problems with analytics.</p>
-        <p>Let’s connect: <a href="https://www.linkedin.com/in/your-profile" class="linkedin-link" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
-      </div>
-    </section>
+        <section class="section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="space-y-2">
+                <div class="flex items-center gap-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text w-5 h-5 text-gray-400"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="12" x2="8" y1="17" y2="17"></line></svg>
+                    <span class="text-gray-300">Professional Data Scientist Certification, Google</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text w-5 h-5 text-gray-400"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="12" x2="8" y1="17" y2="17"></line></svg>
+                    <span class="text-gray-300">TensorFlow Developer Certificate, TensorFlow</span>
+                </div>
+                {/* Add more certifications as needed */}
+            </div>
+        </section>
 
-    <section class="certifications">
-      <h2>Certifications</h2>
-      <button class="accordion">View Certifications</button>
-      <div class="panel">
-        <ul>
-          <li>Google Data Analytics Certificate</li>
-          <li>Microsoft Excel for Business (Coursera)</li>
-          <li>Python for Data Science (IBM)</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+        <section class="section">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="space-y-4">
+                <div class="experience-item">
+                    <h3 class="experience-title">Data Scientist</h3>
+                    <p class="experience-company">ABC Company, New York, NY (2020 - Present)</p>
+                    <ul class="experience-list">
+                        <li>Developed and deployed machine learning models for customer churn prediction.</li>
+                        <li>Conducted data analysis and visualization to identify key business insights.</li>
+                        <li>Collaborated with cross-functional teams to integrate ML solutions into products.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3 class="experience-title">Junior Data Analyst</h3>
+                    <p class="experience-company">XYZ Corp, New York, NY (2018 - 2020)</p>
+                    <ul class="experience-list">
+                        <li>Assisted in the collection, cleaning, and preprocessing of large datasets.</li>
+                        <li>Performed statistical analysis and generated reports for stakeholders.</li>
+                        <li>Supported senior data scientists in model development and evaluation.</li>
+                    </ul>
+                </div>
+                {/* Add more work experience entries as needed */}
+            </div>
+        </section>
 
-  <script>
-    const acc = document.querySelector('.accordion');
-    const panel = document.querySelector('.panel');
-    acc.addEventListener('click', function () {
-      this.classList.toggle('active');
-      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-    });
-  </script>
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="experience-title">Master of Science in Data Science</h3>
+                    <p class="experience-company">New York University, NY (2018 - 2020)</p>
+                    <p class="text-gray-300">
+                        Relevant Coursework: Machine Learning, Statistical Modeling,
+                        Data Visualization, Big Data Technologies
+                    </p>
+                </div>
+                <div>
+                    <h3 class="experience-title">Bachelor of Science in Computer Science</h3>
+                    <p class="experience-company">University of California, Berkeley, CA (2014 - 2018)</p>
+                     <p class="text-gray-300">
+                        Minor: Statistics
+                    </p>
+                </div>
+                {/* Add more education entries as needed */}
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="">
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <h3>Customer Churn Prediction</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="project-card-content">
+                        <p class="project-description">
+                            Developed a machine learning model to predict customer churn for a telecom company.
+                            Utilized logistic regression, random forest, and gradient boosting techniques.
+                        </p>
+                        <div class="technologies-used">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Scikit-learn</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">Matplotlib</span>
+                        </div>
+                        <a href="https://github.com/janedoe/customer-churn-prediction" target="_blank" rel="noopener noreferrer" class="view-project-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code mr-1 w-4 h-4"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <h3>E-commerce Sales Analysis</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="project-card-content">
+                        <p class="project-description">
+                            Performed exploratory data analysis and built interactive dashboards to visualize sales trends
+                            and customer behavior for an e-commerce platform.
+                        </p>
+                        <div class="technologies-used">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">Seaborn</span>
+                            <span class="tech-badge">Tableau</span>
+                        </div>
+                        <a href="https://github.com/janedoe/ecom-sales-analysis" target="_blank" rel="noopener noreferrer" class="view-project-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code mr-1 w-4 h-4"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <h3>Sentiment Analysis of Tweets</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="project-card-content">
+                        <p class="project-description">
+                            Built a deep learning model using LSTM networks to analyze the sentiment of tweets
+                            related to a specific product.
+                        </p>
+                        <div class="technologies-used">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">Keras</span>
+                            <span class="tech-badge">NLP</span>
+                        </div>
+                        <a href="https://github.com/janedoe/tweet-sentiment-analysis" target="_blank" rel="noopener noreferrer" class="view-project-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code mr-1 w-4 h-4"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <h3>Image Classification with CNNs</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down accordion-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="project-card-content">
+                        <p class="project-description">
+                            Implemented a Convolutional Neural Network (CNN) to classify images from the CIFAR-10
+                            dataset, achieving high accuracy.
+                        </p>
+                        <div class="technologies-used">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">Keras</span>
+                            <span class="tech-badge">CNN</span>
+                        </div>
+                        <a href="https://github.com/janedoe/image-classification-cnn" target="_blank" rel="noopener noreferrer" class="view-project-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code mr-1 w-4 h-4"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                {/* Add more project cards as needed */}
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const projectCards = document.querySelectorAll('.project-card');
+
+        projectCards.forEach(card => {
+            const header = card.querySelector('.project-card-header');
+            const content = card.querySelector('.project-card-content');
+            const icon = card.querySelector('.accordion-icon');
+
+            header.addEventListener('click', () => {
+                content.classList.toggle('show');
+                icon.classList.toggle('rotate');
+            });
+        });
+    </script>
 </body>
-
 </html>

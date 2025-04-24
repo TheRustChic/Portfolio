@@ -1,297 +1,60 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import {
-    Mail,
-    Linkedin,
-    Github,
-    Twitter,
-    FileText,
-    Code,
-    ChevronDown,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header class="hero">
+      <div class="hero-content">
+        <div class="profile-image"></div>
+        <h1>Hello, I'm <span class="highlight">Your Name</span></h1>
+        <p class="tagline">A passionate developer, designer, or creator. Crafting innovative solutions and building beautiful web experiences.</p>
+        <a href="#projects" class="btn">View My Work</a>
+      </div>
+    </header>
 
-// --- Reusable Components ---
-
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-    <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 to-emerald-400 text-center mb-10">
-        {children}
-    </h2>
-);
-
-const TechBadge = ({ children }: { children: React.ReactNode }) => (
-    <span className="bg-purple-500/20 text-purple-300 border border-purple-500/30 px-3 py-1.5 rounded-full mr-2 text-sm">
-        {children}
-    </span>
-);
-
-const ViewProjectLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-    <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-400 hover:text-blue-300 flex items-center"
-    >
-        <Code className="mr-1 w-4 h-4" />
-        {children}
-    </a>
-);
-
-const ProfileImage = () => (
-    <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-500/50 mx-auto mb-6">
-        <img
-            src="https://via.placeholder.com/150" // Replace with actual image URL
-            alt="Jane Doe"
-            className="w-full h-full object-cover"
-        />
-    </div>
-);
-
-const ContactLinks = () => (
-    <div className="flex justify-center gap-4 mb-8">
-        <a href="mailto:jane.doe@example.com" aria-label="Email">
-            <Mail className="text-gray-300 hover:text-purple-400" />
-        </a>
-        <a href="https://www.linkedin.com/in/janedoe" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <Linkedin className="text-gray-300 hover:text-purple-400" />
-        </a>
-        <a href="https://github.com/janedoe" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <Github className="text-gray-300 hover:text-purple-400" />
-        </a>
-        <a href="https://twitter.com/janedoe" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <Twitter className="text-gray-300 hover:text-purple-400" />
-        </a>
-    </div>
-);
-
-const Accordion = ({ children }: { children: React.ReactNode }) => <div>{children}</div>;
-
-const AccordionItem = ({
-    title,
-    children,
-}: {
-    title: string;
-    children: React.ReactNode;
-}) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleAccordion = () => setIsOpen(!isOpen);
-
-    return (
-        <Card className="mb-4 bg-white/5 backdrop-blur-md border-gray-700 overflow-hidden">
-            <CardHeader className="flex flex-row items-center justify-between p-4 cursor-pointer" onClick={toggleAccordion} asChild>
-                <CardTitle className="text-base font-semibold text-gray-200">{title}</CardTitle>
-                <ChevronDown
-                    className={cn(
-                        "w-5 h-5 text-gray-300 transition-transform",
-                        isOpen && "rotate-180"
-                    )}
-                />
-            </CardHeader>
-            <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                style={{ overflow: 'hidden' }}
-            >
-                <CardContent className="p-4 text-gray-300">{children}</CardContent>
-            </motion.div>
-        </Card>
-    );
-};
-
-// --- Main App Component ---
-
-const DataSciencePortfolio = () => {
-    return (
-        <div className="bg-gray-900 text-gray-300">
-            <div className="container mx-auto px-4 py-8">
-                <section className="section">
-                    <div className="text-center">
-                        <ProfileImage />
-                        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 to-emerald-400 mb-4">
-                            Jane Doe
-                        </h1>
-                        <p className="text-lg text-gray-300 mb-6">
-                            Data Scientist | Machine Learning Enthusiast
-                        </p>
-                        <ContactLinks />
-                    </div>
-                </section>
-
-                <section className="section">
-                    <SectionTitle>About Me</SectionTitle>
-                    <p className="bg-white/5 backdrop-blur-md border border-gray-700 rounded-lg p-6 leading-relaxed">
-                        Hello! I&apos;m Jane, a passionate data scientist with a strong background
-                        in machine learning and statistical modeling. I love turning raw data
-                        into actionable insights and building intelligent systems that solve
-                        real-world problems. My expertise includes developing predictive
-                        models, data visualization, and working with large datasets. I&apos;m
-                        always eager to learn new technologies and collaborate on exciting
-                        projects.
-                    </p>
-                </section>
-
-                <section className="section">
-                    <SectionTitle>Certifications</SectionTitle>
-                    <div className="space-y-2">
-                        <div className="flex items-center gap-4">
-                            <FileText className="w-5 h-5 text-gray-400" />
-                            <span className="text-gray-300">
-                                Professional Data Scientist Certification, Google
-                            </span>
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <FileText className="w-5 h-5 text-gray-400" />
-                            <span className="text-gray-300">
-                                TensorFlow Developer Certificate, TensorFlow
-                            </span>
-                        </div>
-                        {/* Add more certifications as needed */}
-                    </div>
-                </section>
-
-                <section className="section">
-                    <SectionTitle>Work Experience</SectionTitle>
-                    <div className="space-y-6">
-                        <div className="space-y-2">
-                            <h3 className="text-lg font-semibold text-gray-200">Data Scientist</h3>
-                            <p className="text-gray-400">ABC Company, New York, NY (2020 - Present)</p>
-                            <ul className="list-disc pl-8 text-gray-300">
-                                <li>
-                                    Developed and deployed machine learning models for customer churn
-                                    prediction.
-                                </li>
-                                <li>
-                                    Conducted data analysis and visualization to identify key business
-                                    insights.
-                                </li>
-                                <li>
-                                    Collaborated with cross-functional teams to integrate ML
-                                    solutions into products.
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="space-y-2">
-                            <h3 className="text-lg font-semibold text-gray-200">Junior Data Analyst</h3>
-                            <p className="text-gray-400">XYZ Corp, New York, NY (2018 - 2020)</p>
-                            <ul className="list-disc pl-8 text-gray-300">
-                                <li>
-                                    Assisted in the collection, cleaning, and preprocessing of large
-                                    datasets.
-                                </li>
-                                <li>
-                                    Performed statistical analysis and generated reports for
-                                    stakeholders.
-                                </li>
-                                <li>
-                                    Supported senior data scientists in model development and
-                                    evaluation.
-                                </li>
-                            </ul>
-                        </div>
-                        {/* Add more work experience entries as needed */}
-                    </div>
-                </section>
-
-                <section className="section">
-                    <SectionTitle>Education</SectionTitle>
-                    <div className="space-y-6">
-                        <div className="space-y-2">
-                            <h3 className="text-lg font-semibold text-gray-200">
-                                Master of Science in Data Science
-                            </h3>
-                            <p className="text-gray-400">New York University, NY (2018 - 2020)</p>
-                            <p className="text-gray-300">
-                                Relevant Coursework: Machine Learning, Statistical Modeling, Data
-                                Visualization, Big Data Technologies
-                            </p>
-                        </div>
-                        <div className="space-y-2">
-                            <h3 className="text-lg font-semibold text-gray-200">
-                                Bachelor of Science in Computer Science
-                            </h3>
-                            <p className="text-gray-400">
-                                University of California, Berkeley, CA (2014 - 2018)
-                            </p>
-                            <p className="text-gray-300">Minor: Statistics</p>
-                        </div>
-                        {/* Add more education entries as needed */}
-                    </div>
-                </section>
-
-                <section className="section">
-                    <SectionTitle>Projects</SectionTitle>
-                    <Accordion>
-                        <AccordionItem title="Customer Churn Prediction">
-                            <p className="mb-4">
-                                Developed a machine learning model to predict customer churn for
-                                a telecom company. Utilized logistic regression, random forest,
-                                and gradient boosting techniques.
-                            </p>
-                            <div className="mb-4">
-                                <TechBadge>Python</TechBadge>
-                                <TechBadge>Scikit-learn</TechBadge>
-                                <TechBadge>Pandas</TechBadge>
-                                <TechBadge>Matplotlib</TechBadge>
-                            </div>
-                            <ViewProjectLink href="https://github.com/janedoe/customer-churn-prediction">
-                                View Project
-                            </ViewProjectLink>
-                        </AccordionItem>
-                        <AccordionItem title="E-commerce Sales Analysis">
-                            <p className="mb-4">
-                                Performed exploratory data analysis and built interactive
-                                dashboards to visualize sales trends and customer behavior for an
-                                e-commerce platform.
-                            </p>
-                            <div className="mb-4">
-                                <TechBadge>Python</TechBadge>
-                                <TechBadge>Pandas</TechBadge>
-                                <TechBadge>Seaborn</TechBadge>
-                                <TechBadge>Tableau</TechBadge>
-                            </div>
-                            <ViewProjectLink href="https://github.com/janedoe/ecom-sales-analysis">
-                                View Project
-                            </ViewProjectLink>
-                        </AccordionItem>
-                        <AccordionItem title="Sentiment Analysis of Tweets">
-                            <p className="mb-4">
-                                Built a deep learning model using LSTM networks to analyze the
-                                sentiment of tweets related to a specific product.
-                            </p>
-                            <div className="mb-4">
-                                <TechBadge>Python</TechBadge>
-                                <TechBadge>TensorFlow</TechBadge>
-                                <TechBadge>Keras</TechBadge>
-                                <TechBadge>NLP</TechBadge>
-                            </div>
-                            <ViewProjectLink href="https://github.com/janedoe/tweet-sentiment-analysis">
-                                View Project
-                            </ViewProjectLink>
-                        </AccordionItem>
-                        <AccordionItem title="Image Classification with CNNs">
-                            <p className="mb-4">
-                                Implemented a Convolutional Neural Network (CNN) to classify
-                                images from the CIFAR-10 dataset, achieving high accuracy.
-                            </p>
-                            <div className="mb-4">
-                                <TechBadge>Python</TechBadge>
-                                <TechBadge>TensorFlow</TechBadge>
-                                <TechBadge>Keras</TechBadge>
-                                <TechBadge>CNN</TechBadge>
-                            </div>
-                            <ViewProjectLink href="https://github.com/janedoe/image-classification-cnn">
-                                View Project
-                            </ViewProjectLink>
-                        </AccordionItem>
-                        {/* Add more project cards as needed */}
-                    </Accordion>
-                </section>
-            </div>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Project Title 1</h3>
+          <p>A brief description of your project and what it does.</p>
+          <a href="https://link-to-project" target="_blank" class="btn">View Project</a>
         </div>
-    );
-};
+        <div class="project-card">
+          <h3>Project Title 2</h3>
+          <p>A brief description of your project and what it does.</p>
+          <a href="https://link-to-project" target="_blank" class="btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Project Title 3</h3>
+          <p>A brief description of your project and what it does.</p>
+          <a href="https://link-to-project" target="_blank" class="btn">View Project</a>
+        </div>
+      </div>
+    </section>
 
-export default DataSciencePortfolio;
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <p>I'd love to hear from you! Feel free to reach out via email or connect with me on social media.</p>
+      <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/your-github" target="_blank">github.com/your-github</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/your-linkedin" target="_blank">linkedin.com/in/your-linkedin</a></p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

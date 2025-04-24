@@ -1,227 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A professional portfolio showcasing my projects, skills, and contact information.">
-  <meta name="keywords" content="portfolio, developer, projects, contact">
-  <meta name="author" content="Your Name">
-  <meta property="og:title" content="Your Portfolio">
-  <meta property="og:description" content="Check out my portfolio and projects.">
-  <meta property="og:image" content="thumbnail.jpg">
-  <meta property="og:url" content="https://your-github-username.github.io/">
-  <title>Your Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo">YN</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<section id="projects" class="section">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid-container">
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <img src="project1.jpg" alt="Project 1 Screenshot">
+        </div>
+        <div class="project-content">
+          <h3>Project Title 1</h3>
+          <p>A concise description of your project and its key features. Highlight the problem it solves or the technologies used.</p>
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+          <a href="https://github.com/project-repo1" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="project2.jpg" alt="Project 2 Screenshot">
+        </div>
+        <div class="project-content">
+          <h3>Project Title 2</h3>
+          <p>A concise description of your project and its key features. Highlight the problem it solves or the technologies used.</p>
+          <div class="project-tags">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Express</span>
+          </div>
+          <a href="https://github.com/project-repo2" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="project3.jpg" alt="Project 3 Screenshot">
+        </div>
+        <div class="project-content">
+          <h3>Project Title 3</h3>
+          <p>A concise description of your project and its key features. Highlight the problem it solves or the technologies used.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Django</span>
+            <span>PostgreSQL</span>
+          </div>
+          <a href="https://github.com/project-repo3" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+        </div>
+        </div>
+        <div class="project-card">
+        <div class="project-image">
+          <img src="project4.jpg" alt="Project 4 Screenshot">
+        </div>
+        <div class="project-content">
+          <h3>Project Title 4</h3>
+          <p>A concise description of your project and its key features. Highlight the problem it solves or the technologies used.</p>
+          <div class="project-tags">
+            <span>Mobile</span>
+            <span>React Native</span>
+            <span>Firebase</span>
+          </div>
+          <a href="https://github.com/project-repo4" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+        </div>
+      </div>
     </div>
-  </nav>
-
-  <div class="container">
-    <!-- Header Section -->
-    <header class="hero">
-      <div class="hero-image-container">
-        <div class="overlay"></div>
-        <img src="your-hero-image.jpg" alt="Hero Background" class="hero-image">
-      </div>
-      <div class="hero-content">
-        <div class="profile-container">
-          <div class="profile-image"></div>
-          <div class="social-links">
-            <a href="https://github.com/your-github" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/your-linkedin" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:your-email@example.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-          </div>
-        </div>
-        <h1>Hello, I'm <span class="highlight">Your Name</span></h1>
-        <p class="tagline">A passionate developer creating innovative solutions and beautiful web experiences.</p>
-        <a href="#projects" class="btn primary-btn">View My Work</a>
-      </div>
-    </header>
-
-    <!-- About Me Section -->
-    <section id="about" class="section">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <p>
-          I'm a developer with a passion for crafting elegant and efficient solutions. With expertise in front-end and back-end technologies, I bring ideas to life through clean, responsive design and robust functionality.
-        </p>
-        <div class="skills-container">
-          <h3>My Skills</h3>
-          <ul class="skills">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-            <li>Problem Solving</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <h2 class="section-title">Projects</h2>
-      <div class="slider-controls">
-        <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
-        <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
-      </div>
-      <div class="projects-slider">
-        <div class="project-card">
-          <div class="project-image">
-            <img src="project1.jpg" alt="Project 1 Screenshot">
-          </div>
-          <div class="project-content">
-            <h3>Project Title 1</h3>
-            <p>A brief description of your project and its features. This showcases my skills in frontend development.</p>
-            <div class="project-tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-            </div>
-            <a href="https://github.com/project-repo1" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="project2.jpg" alt="Project 2 Screenshot">
-          </div>
-          <div class="project-content">
-            <h3>Project Title 2</h3>
-            <p>A brief description of your project and its features. This demonstrates my backend capabilities.</p>
-            <div class="project-tags">
-              <span>Node.js</span>
-              <span>Express</span>
-              <span>MongoDB</span>
-            </div>
-            <a href="https://github.com/project-repo2" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="project3.jpg" alt="Project 3 Screenshot">
-          </div>
-          <div class="project-content">
-            <h3>Project Title 3</h3>
-            <p>A brief description of your project and its features. This highlights my full-stack development expertise.</p>
-            <div class="project-tags">
-              <span>React</span>
-              <span>Redux</span>
-              <span>Firebase</span>
-            </div>
-            <a href="https://github.com/project-repo3" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="project4.jpg" alt="Project 4 Screenshot">
-          </div>
-          <div class="project-content">
-            <h3>Project Title 4</h3>
-            <p>A brief description of your project and its features. This showcases my UI/UX design skills.</p>
-            <div class="project-tags">
-              <span>Figma</span>
-              <span>SASS</span>
-              <span>Bootstrap</span>
-            </div>
-            <a href="https://github.com/project-repo4" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-      <h2 class="section-title">Contact</h2>
-      <p class="contact-intro">I'd love to hear from you! Feel free to reach out via email or connect with me on social media.</p>
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn primary-btn">Send Message</button>
-      </form>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Your Name. Made with <span class="heart">❤️</span></p>
-    </footer>
   </div>
-  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
-
-  <script>
-    // Back to top button
-    const backToTopButton = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.style.opacity = '1';
-      } else {
-        backToTopButton.style.opacity = '0';
-      }
-    });
-
-    // Project slider
-    const slider = document.querySelector('.projects-slider');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const cards = document.querySelectorAll('.project-card');
-    let cardIndex = 0;
-
-    function updateSlider() {
-      const cardWidth = cards[0].offsetWidth + 20; // Width + margin
-      slider.scrollTo({
-        left: cardIndex * cardWidth,
-        behavior: 'smooth'
-      });
-    }
-
-    prevBtn.addEventListener('click', () => {
-      if (cardIndex > 0) {
-        cardIndex--;
-        updateSlider();
-      }
-    });
-
-    nextBtn.addEventListener('click', () => {
-      if (cardIndex < cards.length - 1) {
-        cardIndex++;
-        updateSlider();
-      }
-    });
-
-    // Check if we're on mobile
-    function isMobile() {
-      return window.innerWidth <= 768;
-    }
-
-    // Initialize slider
-    window.addEventListener('load', () => {
-      // Only enable snap scrolling on desktop
-      if (!isMobile()) {
-        slider.style.scrollSnapType = 'x mandatory';
-      }
-    });
-  </script>
-</body>
-</html>
+</section>

@@ -19,20 +19,37 @@ body {
   align-items: center;
 }
 
-/* Header Section */
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hero Section */
 .hero {
-  width: 100%;
   text-align: center;
   padding: 4rem 1rem;
   color: white;
 }
 
-.hero-content {
-  max-width: 800px;
-  margin: auto;
-}
-
-.profile-image {
+.hero .profile-image {
   width: 150px;
   height: 150px;
   background: #cfcfcf;
@@ -53,10 +70,9 @@ h1 {
   margin: 1rem 0;
 }
 
+/* Buttons */
 .btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1.5rem;
   background: #ffcc00;
   color: #6a1b9a;
   text-decoration: none;
@@ -70,70 +86,34 @@ h1 {
   transform: scale(1.05);
 }
 
+/* About Section */
+.skills {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.skills li {
+  padding: 0.5rem 1rem;
+  background: #e0e0e0;
+  border-radius: 8px;
+}
+
 /* Projects Section */
-.section {
-  width: 100%;
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.section-title {
-  font-size: 2rem;
-  color: #6a1b9a;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
 .project-card {
-  background: #f9f9f9;
-  border-radius: 8px;
+  background: white;
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
 }
 
-.project-card h3 {
+/* Social Icons */
+.social-links .social-icon {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.project-card p {
-  font-size: 1rem;
-  margin: 0.5rem 0 1rem;
-}
-
-.project-card .btn {
-  font-size: 0.9rem;
-}
-
-/* Contact Section */
-.contact-info {
-  text-align: center;
-}
-
-.contact-info a {
-  color: #6a1b9a;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem 0;
-  color: white;
 }

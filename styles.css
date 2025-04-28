@@ -145,13 +145,26 @@ body {
 .profile-container {
   position: relative;
   margin-bottom: 30px;
+  /* You might need to add width and height here if you want the profile-container itself to have a fixed size for layout purposes. However, the circular clipping happens on .profile-image. */
+}
+
+.profile-image {
+  width: 150px; /* Adjust to your desired size */
+  height: 150px; /* Must be the same as width for a circle */
+  border-radius: 50%;
+  overflow: hidden; /* This is what clips the image to the circle */
+  /* You already had these, and they are fine: */
+  background: var(--gray-color); /* You might want to remove this if the image should fully cover the circle */
+  margin: 0 auto;
+  border: 5px solid var(--secondary-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .profile-image img {
-  width: 100%; /* Make the image take up the full width of its parent (.profile-image) */
-  height: 100%; /* Make the image take up the full height of its parent (.profile-image) */
-  object-fit: cover; /* This is key! It ensures the image covers the area without distortion, cropping if necessary */
-  border-radius: 50%; /* This will make the image itself circular, matching the container */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; /* Makes the image corners round, ensuring it's circular within the clipped container */
 }
 
 

@@ -147,15 +147,13 @@ body {
   margin-bottom: 30px;
 }
 
-.profile-image {
-  width: 150px;
-  height: 150px;
-  background: var(--gray-color);
-  border-radius: 50%;
-  margin: 0 auto;
-  border: 5px solid var(--secondary-color);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.profile-image img {
+  width: 100%; /* Make the image take up the full width of its parent (.profile-image) */
+  height: 100%; /* Make the image take up the full height of its parent (.profile-image) */
+  object-fit: cover; /* This is key! It ensures the image covers the area without distortion, cropping if necessary */
+  border-radius: 50%; /* This will make the image itself circular, matching the container */
 }
+
 
 .social-links {
   position: absolute;
